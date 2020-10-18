@@ -23,3 +23,11 @@ for p in products:
     print(p[0]) # 表示印出小清單的第一個東西，也就是name
 for p in products:
     print(p[0], '的價格是', p[1]) # 商品名稱的價格是商品價格
+
+with open('products.txt', 'w') as f: #上面東西執行完後能直接寫出txt/csv檔並產生檔案
+    for p in products:
+        f.write(p[0] + ',' + p[1] + '\n') # 字串可以相加相乘
+
+with open('products.csv', 'w') as f: # 當有不同屬性的東西要一起存的時候會用csv檔，像很多政府表格中央氣象局等的資料
+    for p in products:
+        f.write(p[0] + ',' + p[1] + '\n') # 逗點有分格的作用
