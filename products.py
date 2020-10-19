@@ -1,6 +1,13 @@
 # 那大清單可以直接products = [[name, price]]嗎？不行（原因如下）
 # 存成二維清單才可以方便分組
 products = []
+with open('products.csv', 'r', encoding = 'utf-8') as f:
+    for line in f:
+        if '商品,價格' in line:
+            continue # 像玩遊戲pass這一輪一樣，直接跳到下一個line繼續loop
+        name, price = line.strip().split(',') # 把換行符號去掉＋看到逗點就切成另一塊
+        products.append([name, price])
+print(products)
 while True:
     name = input('請輸入商品名稱：')
     if name == 'q': 
