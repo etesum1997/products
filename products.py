@@ -24,10 +24,12 @@ for p in products:
 for p in products:
     print(p[0], '的價格是', p[1]) # 商品名稱的價格是商品價格
 
-with open('products.txt', 'w') as f: #上面東西執行完後能直接寫出txt/csv檔並產生檔案
+with open('products.txt', 'w') as f: # 上面東西執行完後能直接寫出txt/csv檔並產生檔案
     for p in products:
         f.write(p[0] + ',' + p[1] + '\n') # 字串可以相加相乘
 
-with open('products.csv', 'w') as f: # 當有不同屬性的東西要一起存的時候會用csv檔，像很多政府表格中央氣象局等的資料
+with open('products.csv', 'w', encoding = 'utf-8') as f:
+    f.write('商品,價格\n') # 當有不同屬性的東西要一起存的時候會用csv檔，像很多政府表格中央氣象局等的資料
     for p in products:
         f.write(p[0] + ',' + p[1] + '\n') # 逗點有分格的作用
+# 不同資料型別不能做加或乘，所以如果把price = int(price)了，下面的字串相加部分就要改成str(p[1])
